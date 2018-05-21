@@ -1,0 +1,37 @@
+<form (ngSubmit)="submitForm()" [formGroup]="loginForm" novalidate>
+    <div class="row" >
+    <div class="form-group col-sm-12" align="center">
+      <label class="col-sm-3">
+        <p>Username:</p>
+        <input type="text" formControlName="Username" class="form-control" placeholder="Enter your Username">
+      </label>
+  
+      <br>
+      <label class="col-sm-3">
+        <p>Password:</p>
+        <input type="password" formControlName="password" class="form-control" placeholder="Enter your password">
+      </label>
+      <br>
+      
+      <div class="form-submit">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+  </form>
+  
+  <div class="form-value">
+    Form value:
+    <pre>
+      {{registerForm.value | json}}
+    </pre>
+    <p>
+      Status: {{registerForm.status}}
+    </p>
+    <p>
+      Valid: {{registerForm.valid}}
+    </p>
+    <p>Submit then open console to see full form.</p>
+  </div>
+  
+  
