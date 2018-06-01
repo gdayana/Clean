@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
@@ -15,6 +16,7 @@ import { RepoDetailComponent } from './github/repo-detail/repo-detail.component'
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component'
+import { RegisterCompanyComponent } from './register_company/registerc.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { LoginComponent } from './login/login.component'
     RepoDetailComponent,
     HomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterCompanyComponent
   ],
   imports: [
     BrowserModule,
