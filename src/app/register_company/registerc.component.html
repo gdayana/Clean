@@ -1,18 +1,14 @@
-<h2>Register as a user</h2>
+<h2>Register as a Company</h2>
 
-<form (ngSubmit)="submitForm()" [formGroup]="registerForm" novalidate>
+<form (ngSubmit)="submitForm()" [formGroup]="register_companyForm" novalidate>
   <div class="row" >
   <div class="form-group col-sm-12" align="center">
     <label class="col-sm-3">
-      <p>First Name:</p>
-      <input type="text" formControlName="firstname" class="form-control" placeholder="Enter your first name.">
+      <p>Company Name:</p>
+      <input type="text" formControlName="name" class="form-control" placeholder="Enter your company name.">
     </label>
     <br>
-    <label class="col-sm-3">
-      <p>Last Name:</p>
-      <input type="text" formControlName="lastname" class="form-control" placeholder="Enter your last name.">
-    </label>
-    <br>
+   
     <label class="col-sm-3">
         <p>Email:</p>
         <input type="email" formControlName="email" class="form-control" placeholder="Enter your email.">
@@ -31,14 +27,13 @@
     </label>
   <br>
     <label class="col-sm-3">
-      <p>Country:</p>
-      <input type="text" formControlName="Country" class="form-control" placeholder="Enter your Country">
-      <br>
+      <p>Phone:</p>
+      <input type="text" formControlName="phone" class="form-control" placeholder="Select your phone">
     </label>
     <br>
     <label class="col-sm-3">
-      <p>City:</p>
-      <input type="text" formControlName="city" class="form-control" placeholder="Select your city">
+      <p>Adress: </p>
+      <input type="text" formControlName="adress" class="form-control" placeholder="Select your adress">
     </label>
   
     <br>
