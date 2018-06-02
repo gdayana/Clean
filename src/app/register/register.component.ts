@@ -10,6 +10,7 @@ import CustomValidators from '../forms/CustomValidators';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   constructor(private formBuilder: FormBuilder) {}
+ 
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -19,8 +20,10 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, CustomValidators.validateEmail]],
       password:['', [Validators.required, Validators.minLength(6)]],
       city: ['', [Validators.required, Validators.minLength(3)]]
+
     });
   }
+
   submitForm(): void {
     console.log(this.registerForm);
   }
