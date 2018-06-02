@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, NG_ASYNC_VALIDATORS } from '@angula
 import CustomValidators from '../forms/CustomValidators';
 
 @Component({
-  selector: 'register-company',
+  selector: 'registerc',
   templateUrl: './registerc.component.html',
   styleUrls: ['./registerc.component.css']
 })
@@ -13,12 +13,12 @@ export class RegisterCompanyComponent implements OnInit {
 
   ngOnInit() {
     this.register_companyForm = this.formBuilder.group({
-      name: ['',[Validators.required, Validators.minLength[5]]],
-      username: ['',[Validators.required, Validators.minLength[5]]],
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      username: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, CustomValidators.validateEmail]],
-      password:['', Validators.required, Validators.minLength[6]],
-      phone:['', Validators.required, CustomValidators.length[10]],
-      adress: ['', Validators.required, Validators.minLength[10]]
+      password:['', [Validators.required, Validators.minLength(6)]],
+      phone:['', [Validators.required, Validators.minLength(10)]],
+      adress: ['', [Validators.required, Validators.minLength(10)]]
 
     });
   }
