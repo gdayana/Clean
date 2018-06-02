@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
 import { AppComponent } from './app.component';
 import { GithubService } from './github/shared/github.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 

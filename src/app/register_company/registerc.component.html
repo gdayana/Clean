@@ -17,7 +17,7 @@
 
     <label class="col-sm-3">
       <p>Username:</p>
-      <input type="text" formControlName="Username" class="form-control" placeholder="Enter your Username">
+      <input type="text" formControlName="username" class="form-control" placeholder="Enter your Username">
     </label>
 
     <br>
@@ -47,13 +47,13 @@
 <div class="form-value">
   Form value:
   <pre>
-    {{registerForm.value | json}}
+    {{register_companyForm.value | json}}
   </pre>
   <p>
-    Status: {{registerForm.status}}
+    Status: {{register_companyForm.status}}
   </p>
   <p>
-    Valid: {{registerForm.valid}}
+    Valid: {{register_companyForm.valid}}
   </p>
   <p>Submit then open console to see full form.</p>
 </div>

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, NG_ASYNC_VALIDATORS } from '@angula
 import CustomValidators from '../forms/CustomValidators';
 
 @Component({
-  selector: 'app-login',
+  selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['',[Validators.required, CustomValidators.length[5]]],
-      password:['', Validators.required, CustomValidators.length[6]],
+      username: ['',[Validators.required, Validators.minLength(6)]],
+      password:['', [Validators.required, Validators.minLength(6)]],
     });
   }
   submitForm(): void {
