@@ -1,6 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, NG_ASYNC_VALIDATORS } from '@angular/forms';
 import CustomValidators from '../forms/CustomValidators';
+
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,6 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   constructor(private formBuilder: FormBuilder) {}
  
-
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       firstname: ['', [ Validators.required, Validators.minLength(3) ] ],

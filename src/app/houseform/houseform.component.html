@@ -1,0 +1,66 @@
+<!-- <div class="container">
+    <h2>Spune-ne cateva detalii despre casa ta: </h2>
+    <div id="accordion">
+    <form (ngSubmit)="submitForm()" [formGroup]="houseform" novalidate>
+        <div class = "card">
+            
+                <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                        Curățare de bază (fără mobilă)
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                    
+                    <div class="form-check">
+                       <label class="form-check-label">
+                           <input type="checkbox" class="form-check-input" value="">Curățare avansată
+                        </label>
+                    </div>
+                    <button type="button" class="btn btn-primary">Next</button>
+                    </div>
+                </div>
+        </div>
+        <div class="card">
+                <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+                        Curățare avansată (cu mobilă, pe încăperi)
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+
+                    <button type="button" class="btn btn-primary">Finish</button>
+                    </div>
+                </div>    
+        </div>
+    </form>
+    </div>
+</div> -->
+
+<input type="text" (keyup.enter)="add(house)" #house>
+
+<ul *ngFor="let house of houses$ | async">
+    <li>
+        {{house.$value || house.name}}
+    </li>
+</ul>
+
+<h2>here should over dummy data</h2>
+
+
+      <div class="form-value">
+        Form value:
+        <pre>
+          {{houseform.value | json}}
+        </pre>
+        <p>
+          Status: {{houseform.status}}
+        </p>
+        <p>
+          Valid: {{houseform.valid}}
+        </p>
+        <p>Submit then open console to see full form.</p>
+      </div>
+      
+      

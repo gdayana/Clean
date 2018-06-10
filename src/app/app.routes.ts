@@ -1,3 +1,5 @@
+import { HouseFormComponent } from './houseform/houseform.component';
+import { AuthGuardService } from './auth-guard.service';
 
 import { LoginComponent } from './login/login.component';
 
@@ -11,12 +13,14 @@ import { RepoDetailComponent } from './github/repo-detail/repo-detail.component'
 import { RegisterComponent } from './register/register.component';
 import { RegisterCompanyComponent } from './register_company/registerc.component';
 
+
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'about', component: AboutComponent, canActivate: [AuthGuardService] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'registerc', component: RegisterCompanyComponent}
+  { path: 'registerc', component: RegisterCompanyComponent},
+  { path: 'houseform', component: HouseFormComponent}
 ];
 
