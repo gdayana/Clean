@@ -1,25 +1,15 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/']"> Home </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link"  [routerLink]="['/about']"> About </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link"  [routerLink]="['/register']"> Register </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/login']"> Login </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/registerc']"> Register as a Company </a>
-    </li>
-  </ul>
-</nav>
+<navbar></navbar>
 
 <main>
-  <router-outlet></router-outlet>
+
+  <router-outlet>  </router-outlet>
+<!-- 
+<ul>
+  <li *ngFor="let test of tests">
+  {{test.$value}}
+  </li>
+</ul> -->
+
 </main>
 
 

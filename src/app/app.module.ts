@@ -1,4 +1,12 @@
-
+import { HouseFormComponent } from './houseform/houseform.component';
+import { UserService } from './user.service';
+import { AuthGuardService } from './auth-guard.service';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { NavComponent } from './navbar/navbar.component';
+import { GLogin } from './googlelogin/glogin.component';
+import { RegisterService } from './register.service';
+import { environment } from './evironment/environment';
+import { Observable } from 'rxjs/observable';
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
@@ -17,6 +25,10 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component'
 import { RegisterCompanyComponent } from './register_company/registerc.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AuthService } from './auth.service';
+
 
 @NgModule({
   declarations: [
@@ -28,17 +40,27 @@ import { RegisterCompanyComponent } from './register_company/registerc.component
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    RegisterCompanyComponent
+    RegisterCompanyComponent,
+    GLogin,
+    NavComponent,
+    HouseFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(rootRouterConfig, { useHash: true })
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,                
+    RouterModule.forRoot(rootRouterConfig, { useHash: false })
   ],
   providers: [
-    GithubService
+    GithubService,
+    RegisterService,
+    AuthService,
+    AuthGuardService,
+    UserService
   ],
   bootstrap: [ AppComponent ]
 })
