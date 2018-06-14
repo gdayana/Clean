@@ -1,37 +1,37 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
   <a clas="navbar-brand" routerLink="/">O</a>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/']"> Acasă </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  [routerLink]="['/about']"> Despre </a>
-          </li>
-          <ng-template #annonymousUser>
-                <li class="nav-item">
-                  <a class="nav-link"  [routerLink]="['/register']"> Înregistrare </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/registerc']"> Înregistrare companie </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/login']"> Autentificare </a>
-                </li>
-          </ng-template>
-       
-          <li *ngIf="auth.user$ | async as user; else annonymousUser" ngbDropdown class="nav-item dropdown">
-            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ user.displayName }}
-            </a>
-              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" routerLink="/my/orders"> My orders</a>
-                <a class="dropdown-item" routerLink="/admin/orders">Manage orders</a>
-                <a class="dropdown-item" (click)="logout()">Log out</a>
-              </div> 
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/houseform']"> Comandă acum </a>
-          </li>
-      
-        </ul>
-      </nav>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/']"> Acasă </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/about']"> Despre </a>
+    </li>
+    <ng-template #annonymousUser>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/register']"> Înregistrare </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/registerc']"> Înregistrare companie </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/login']"> Autentificare </a>
+      </li>
+    </ng-template>
+
+    <li *ngIf="auth.user$ | async as user; else annonymousUser" ngbDropdown class="nav-item dropdown">
+      <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ user.displayName }}
+      </a>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+        <a class="dropdown-item" routerLink="/my/orders"> My orders</a>
+        <a class="dropdown-item" routerLink="/admin/houseform">Manage orders</a>
+        <a class="dropdown-item" (click)="logout()">Log out</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/admin/houseform/new']"> Comandă acum </a>
+    </li>
+
+  </ul>
+</nav>

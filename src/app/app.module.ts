@@ -1,3 +1,6 @@
+import { RoomsComponent } from './houseform/rooms/rooms.component';
+import { AdminComponent } from './admin/admin.component';
+import { FormService } from './form.service';
 import { HouseFormComponent } from './houseform/houseform.component';
 import { UserService } from './user.service';
 import { AuthGuardService } from './auth-guard.service';
@@ -28,6 +31,7 @@ import { RegisterCompanyComponent } from './register_company/registerc.component
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from './auth.service';
+import { CustomFormsModule } from 'ng2-validation';
 
 
 @NgModule({
@@ -43,13 +47,16 @@ import { AuthService } from './auth.service';
     RegisterCompanyComponent,
     GLogin,
     NavComponent,
-    HouseFormComponent
+    HouseFormComponent,
+    AdminComponent,
+    RoomsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,                
@@ -60,7 +67,8 @@ import { AuthService } from './auth.service';
     RegisterService,
     AuthService,
     AuthGuardService,
-    UserService
+    UserService,
+    FormService,
   ],
   bootstrap: [ AppComponent ]
 })

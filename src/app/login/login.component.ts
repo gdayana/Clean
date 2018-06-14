@@ -1,3 +1,4 @@
+import { RegisterService } from './../register.service';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, NG_ASYNC_VALIDATORS } from '@angular/forms';
@@ -13,7 +14,7 @@ import CustomValidators from '../forms/CustomValidators';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private login: RegisterService) {}
 
 
   ngOnInit() {

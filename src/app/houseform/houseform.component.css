@@ -1,0 +1,34 @@
+btn.btn-primary{
+    float: right;
+}
+/* 
+input[type=checkbox]:checked:first-child   {
+    display:none;
+  }
+   */
+/* input[type=checkbox]:checked ~ button[type=submit] {
+    display:none;
+} */
+
+
+
+ /* input[type=checkbox]:checked ~ button:not(#next){
+    display: block;
+    float:right;
+    margin: 50px 0px 20px 10px;
+}
+
+ input[type=checkbox] ~ button[type=button]{
+    display: none;
+}
+
+ input[type=checkbox]:checked ~ #next{
+    display: none;
+}
+
+ input[type=checkbox] ~ button:not([type=button]){
+    display: block;
+    float:right;
+    margin: 50px 0px 20px 10px;
+}
+ */

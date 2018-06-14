@@ -1,66 +1,490 @@
-<!-- <div class="container">
-    <h2>Spune-ne cateva detalii despre casa ta: </h2>
-    <div id="accordion">
-    <form (ngSubmit)="submitForm()" [formGroup]="houseform" novalidate>
-        <div class = "card">
-            
-                <div class="card-header">
-                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                        Curățare de bază (fără mobilă)
-                    </a>
+<div class="container">
+  <h2>Spune-ne cateva detalii despre casa ta: </h2>
+  <div id="accordion">
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+        <div class="card" id="first">
+          <div class="card-header" id="headingOne">
+            <a class="card-link" data-toggle="collapse" aria-expanded="true" href="#collapseOne">
+              <h3>Curățare de bază (fără mobilă)</h3>
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body row inline">
+              <div class="form-group col-sm-4">
+                <label for="floor">Suprafața apartamentului</label>
+                <div class="input-group ">
+                  <input ngModel name="floor" id="floor" type="number" class="form-control" min="0" max="224"
+                    required/>
+                  <div class="input-group-append">
+                    <span class="input-group-text">m²</span>
+                  </div>
                 </div>
-                <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                    <div class="card-body">
-                    
-                    <div class="form-check">
-                       <label class="form-check-label">
-                           <input type="checkbox" class="form-check-input" value="">Curățare avansată
-                        </label>
-                    </div>
-                    <button type="button" class="btn btn-primary">Next</button>
-                    </div>
-                </div>
-        </div>
-        <div class="card">
-                <div class="card-header">
-                    <a class="card-link" data-toggle="collapse" href="#collapseTwo">
-                        Curățare avansată (cu mobilă, pe încăperi)
-                    </a>
-                </div>
-                <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                    <div class="card-body">
+                <!-- <div *ngIf="floor.?errors && (floor.?dirty || floor.?touched)" class="alert alert-danger">
+                  <div [hidden]="!floor.errors?.required">
+                    Suprafata este necesară pentru determinarea suprafeței de lucru. În cazul în care nu doriți curățarea podelei vă rugăm să
+                    introduceți valoare 0.
+                  </div>
+                  <div [hidden]="!floor.errors?.min">
+                    Suprafata minimă este necesară pentru determinarea suprafeței de lucru.
+                  </div>
+                  <div [hidden]="!floor.errors?.max">
+                    Ați depășit valoare nomală a suprafeței unui imobil folosi pentru apartament. Pentru spațiile comerciale vă rugăm să ne contactați.
+                  </div>
+                </div> -->
+              </div>
 
-                    <button type="button" class="btn btn-primary">Finish</button>
-                    </div>
-                </div>    
+              <div class="form-group  col-sm-4">
+                <label for="walls">Pereți</label>
+                <div class="input-group ">
+                  <input ngModel name="walls" id="walls" type="number" class="form-control" min="0" max="600"
+                    required/>
+                  <div class="input-group-append">
+                    <span class="input-group-text">m²</span>
+                  </div>
+                </div>
+                <!-- <div *ngIf="walls.errors && (walls.dirty || walls.touched)" class="alert alert-danger">
+                  <div [hidden]="!walls.errors.required">
+                    Suprafata este necesară pentru determinarea suprafeței de lucru. În cazul în care nu doriți curățarea podelei vă rugăm să
+                    introduceți valoare 0.
+                  </div>
+                  <div [hidden]="!walls.errors.min">
+                    Suprafata minimă este necesară pentru determinarea suprafeței de lucru.
+                  </div>
+                  <div [hidden]="!walls.errors.max">
+                    Ați depășit valoare nomală a suprafeței unui imobil folosi pentru apartament. Pentru spațiile comerciale vă rugăm să ne contactați.
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="form-group  col-sm-4">
+                <label for="ceilings">Tavan</label>
+                <div class="input-group ">
+                  <input ngModel name="ceilings" id="ceilings" type="number" class="form-control" min="0" max="224"
+                    required/>
+                  <div class="input-group-append">
+                    <span class="input-group-text">m²</span>
+                  </div>
+                </div>
+                <!-- <div *ngIf="ceilings.errors && (ceilings.dirty || ceilings.touched)" class="alert alert-danger">
+                  <div [hidden]="!ceilings.errors.required">
+                    Suprafata este necesară pentru determinarea suprafeței de lucru. În cazul în care nu doriți curățarea geamurilor vă rugăm
+                    să introduceți valoare 0.
+                  </div>
+                  <div [hidden]="!ceilings.errors.min">
+                    Suprafata minimă este necesară pentru determinarea suprafeței de lucru.
+                  </div>
+                  <div [hidden]="!ceilings.errors.max">
+                    Ați depășit valoare nomală a suprafeței unui imobil folosi pentru apartament. Pentru spațiile comerciale vă rugăm să ne contactați.
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="form-group  col-sm-4">
+                <label for="windows">Ferestre</label>
+                <div class="input-group">
+                  <input ngModel name="windows" id="windows" type="number" class="form-control " min="0" max="50"
+                    required />
+                  <div class="input-group-append">
+                    <span class="input-group-text">number</span>
+                  </div>
+                </div>
+                <!-- <div *ngIf="windows.errors && (windows.dirty || windows.touched)" class="alert alert-danger">
+                  <div [hidden]="!windows.errors.required">
+                    Suprafata este necesară pentru determinarea suprafeței de lucru. În cazul în care nu doriți curățarea geamurilor vă rugăm
+                    să introduceți valoare 0.
+                  </div>
+                  <div [hidden]="!windows.errors.min">
+                    Suprafata minimă este necesară pentru determinarea suprafeței de lucru.
+                  </div>
+                  <div [hidden]="!windows.errors.max">
+                    Ați depășit valoare nomală a suprafeței unui imobil folosi pentru apartament. Pentru spațiile comerciale vă rugăm să ne contactați.
+                  </div>
+                </div> -->
+              </div>
+
+
+              <div class="form-group  col-sm-4">
+                <label for="doors">Uși</label>
+                <div class="input-group">
+                  <input ngModel name="doors" id="doors" type="number" class="form-control" min="0" max="30" 
+                    required />
+                  <div class="input-group-append">
+                    <span class="input-group-text">number</span>
+                  </div>
+                </div>
+                <!-- <div *ngIf="doors.errors && (doors.dirty || doors.touched)" class="alert alert-danger">
+                  <div [hidden]="!doors.errors.required">
+                    În cazul în care nu doriți curățarea geamurilor vă rugăm să introduceți valoare 0.
+                  </div>
+                  <div [hidden]="!doors.errors.min">
+                    Suprafata minimă este necesară pentru determinarea suprafeței de lucru.
+                  </div>
+                  <div [hidden]="!doors.errors.max">
+                    Ați depășit valoare nomală a suprafeței unui imobil folosi pentru apartament.
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="checkgroup col-sm-12">
+                <div class="form-check">
+                  <input type="checkbox" [checked]="false" class="form-check-input" (click)="myFunction()">
+                  <label class="form-check-label">
+                    Fără mobilier, electronice, decorațiuni sau alte obiecte din casă
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
+        <div id="optional">
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <a class="card-link" data-toggle="collapse" aria-expanded="false" href="#collapseTwo">
+                <h3>Selectarea încăperilor</h3>
+              </a>
+            </div>
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+        
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        
+                  <div class="checkers row">
+                    <h5 class="col-sm-12">Selecteaza încăperile pe care dorești să le curățăm: </h5>
+                    <div class="buttongroup-check col-sm-2">
+                      <a class="btn btn-outline-primary" data-toggle="collapse" aria-pressed="false" href="#collapseBedroom" role="button" aria-expanded="false"
+                        aria-controls="collapseBedroom">
+                        <label class="buttongroup-check-label ">Dormitor</label>
+                      </a>
+                    </div>
+        
+                    <div class="buttongroup-check col-sm-2 ">
+                      <a class="btn btn-outline-primary " data-toggle="collapse" aria-pressed="false" href="#collapseLivingroom" role="button"
+                        aria-expanded="false" aria-controls="collapseLivingroom">
+                        <label class="buttongroup-check-label "> Sufragerie </label>
+                      </a>
+                    </div>
+        
+                    <div class="buttongroup-check col-sm-2">
+                      <a class="btn btn-outline-primary " data-toggle="collapse" aria-pressed="false" href="#collapseKitchen" role="button" aria-expanded="false"
+                        aria-controls="collapseKitchen">
+                        <label class="buttongroup-check-label">Bucătărie</label>
+                      </a>
+                    </div>
+        
+                    <div class="buttongroup-check col-sm-2">
+                      <a class="btn btn-outline-primary " data-toggle="collapse" aria-pressed="false" href="#collapseBathroom" role="button" aria-expanded="false"
+                        aria-controls="collapseBathroom">
+                        <label class="buttongroup-check-label">Baie</label>
+                      </a>
+                    </div>
+        
+                    <div class="buttongroup-check col-sm-2">
+                      <a class="btn btn-outline-primary" data-toggle="collapse" aria-pressed="false" href="#collapseStoreroom" role="button" aria-expanded="false"
+                        aria-controls="collapseStoreroom">
+                        <label class="buttongroup-check-label">Debara</label>
+                      </a>
+                    </div>
+        
+                  </div>
+                </div>
+        
+                <div class="collapse row" id="collapseBedroom">
+                  <h4 class="col-sm-12">Dormitor</h4>
+                  <div class="form-group col-sm-4">
+                    <label for="b_carpet">Suprafata covor</label>
+                    <div class="input-group">
+                      <input ngModel name="b_carpet" id="b_carpet" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">m²</span>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="form-group col-sm-4">
+                    <label for="b_electronics">Număr electronice</label>
+                    <div class="input-group">
+                      <input ngModel name="b_electronics" id="b_electronics" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">bucăți</span>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="form-group col-sm-4">
+                    <label for="b_furniture">Obiecte de mobilier</label>
+                    <div class="input-group">
+                      <input ngModel name="b_furniture" id="b_furniture" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">buncăți</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- Livingroom -->
+                <div class="collapse row" id="collapseLivingroom">
+                  <h4 class="col-sm-12">Sufragerie</h4>
+                  <div class="form-group col-sm-4">
+                    <label for="l_carpet">Suprafata covor</label>
+                    <div class="input-group">
+                      <input ngModel name="l_carpet" id="l_carpet" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">m²</span>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="form-group col-sm-4">
+                    <label for="l_electronics">Număr electronice</label>
+                    <div class="input-group">
+                      <input ngModel name="l_electronics" id="l_electronics" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">bucăți</span>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="form-group col-sm-4">
+                    <label for="l_furniture">Obiecte de mobilier</label>
+                    <div class="input-group">
+                      <input ngModel name="l_furniture" id="l_furniture" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">bucăți</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- Kitchen -->
+                <div class="collapse row" id="collapseKitchen">
+                  <h4 class="col-sm-12">Bucătărie</h4>
+                  <div class="form-group col-sm-3">
+                    <label for="k_carpet">Suprafata covor</label>
+                    <div class="input-group">
+                      <input ngModel name="k_carpet" id="k_carpet" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">m²</span>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="form-group col-sm-3">
+                    <label for="k_electronics">Număr electronice</label>
+                    <div class="input-group">
+                      <input ngModel name="k_electronics" id="k_electronics" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">bucăți</span>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="form-group col-sm-3">
+                    <label for="k_furniture">Obiecte de mobilier</label>
+                    <div class="input-group">
+                      <input ngModel name="k_furniture" id="k_furniture" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">bucăți</span>
+                      </div>
+                    </div>
+                  </div>
+        
+        
+                  <div class="form-group col-sm-3">
+                    <label for="k_dishes">Vase</label>
+                    <div class="input-group">
+                      <input ngModel name="k_dishes" id="k_dishes" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">bucăți</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+        
+                <!-- Bathroom -->
+                <div class="collapse row" id="collapseBathroom">
+                  <h4 class="col-sm-12">Baie</h4>
+                  <div class="form-group col-sm-4">
+                    <label for="bth_surface">Suprafata gresie</label>
+                    <div class="input-group">
+                      <input ngModel name="bth_surface" id="bth_surface" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">m²</span>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="form-group col-sm-4">
+                    <label for="btn_objects">Obiecte sanitare</label>
+                    <div class="input-group">
+                      <input ngModel name="btn_objects" id="btn_objects" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">bucăți</span>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="form-group col-sm-4">
+                    <label for="k_furniture">Obiecte de mobilier</label>
+                    <div class="input-group">
+                      <input ngModel name="k_furniture" id="k_furniture" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">bucăți</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+        
+                <!-- Storeroom -->
+                <div class="collapse row" id="collapseStoreroom">
+                  <h4 class="col-sm-12">Debara</h4>
+                  <div class="form-group col-sm-12">
+                    <label for="s_furniture">Mobila</label>
+                    <div class="input-group">
+                      <input ngModel name="s_furniture" id="s_furniture" type="number" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">m²</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div clas="card">
+          <div class="card-header" id="headingThree">
+            <a class="card-link collapsing" data-toggle="collapse" aria-expanded="false" href="#collapseThree">
+              <h3>Detalii despre solicitare</h3>
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+
+              <div class="form-group">
+                <label for="city">Oraș</label>
+                <div class="input-group md-6">
+                  <input ngModel name="city" id="city" type="text" class="form-control" minlength="3" maxlength="24"
+                    required />
+                </div>
+                <!-- <div *ngIf="city.errors && (city.dirty || city.touched)" class="alert alert-danger">
+                  <div [hidden]="!city.errors.required">
+                    Introducerea orasului este obligatorie
+                  </div>
+                  <div [hidden]="!city.errors.minlength">
+                    Suprafata minimă este necesară pentru determinarea suprafeței de lucru.
+                  </div>
+                  <div [hidden]="!city.errors.maxlength">
+                    Ați depășit valoare nomală a suprafeței unui imobil folosi pentru apartament. Pentru spațiile comerciale vă rugăm să ne contactați.
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="form-group">
+                <label for="adress">Adresa</label>
+                <div class="input-group md-6">
+                  <input ngModel name="adress" id="electronics" type="text" class="form-control" minlength="10" maxlength="54"
+                    required />
+                </div>
+                <!-- <div *ngIf="adress.errors && (adress.dirty || adress.touched)" class="alert alert-danger">
+                  <div [hidden]="!adress.errors.required">
+                    Introducerea adresei complete este obligatorie. Specificați Strada, Blocul, Scara, numărul apartamentului.
+                  </div>
+                  <div [hidden]="!adress.errors.minlength">
+                    Adresa are prea putine caractere. Specificați Strada, Blocul, Scara, numărul apartamentului.
+                  </div>
+                  <div [hidden]="!adress.errors.maxlength">
+                    Adresa are prea multe caractere.
+                  </div> -->
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="name">Numele complet al solicitantului</label>
+                <div class="input-group md-3">
+                  <input ngModel name="name" id="name" type="text" class="form-control" minlength="3" maxlength="24"
+                    required />
+                </div>
+                <!-- <div *ngIf="adress.errors && (adress.dirty || adress.touched)" class="alert alert-danger">
+                  <div [hidden]="!adress.errors.required">
+                    Introducerea orasului este obligatorie.
+                  </div>
+                  <div [hidden]="!adress.errors.minlength">
+                    Orașul are prea putine caractere. Încercați să specificați numele complet.
+                  </div>
+                  <div [hidden]="!adress.errors.maxlength">
+                    Adresa are prea multe caractere.
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Numar de telefon</label>
+                <div class="input-group md-3">
+                  <input ngModel name="phone" id="phone" type="number" class="form-control" phone 
+                    required/>
+                </div>
+                <!-- <div *ngIf="adress.errors && (adress.dirty || adress.touched)" class="alert alert-danger">
+                  <div [hidden]="!phone.errors.required">
+                    Introducerea numarului de telefon este obligatorie.
+                  </div>
+                  <div [hidden]="phone.errors.phone">
+                    Numărul de telefon nu este valid.
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="form-group">
+                <label for="data">Data stabilită pentru curățare </label>
+                <div class="input-group md-3">
+                  <input ngModel name="data" id="data" type="datetime-local" class="form-control" data
+                    required/>
+                </div>
+                <!-- <div *ngIf="data.errors && (data.dirty || data.touched)" class="alert alert-danger">
+                  <div [hidden]="!data.errors.required">
+                    Introducerea datei este obligatorie.
+                  </div>
+                  <div [hidden]="data.errors.data">
+                    Eroare la data
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="form-group">
+                <label for="comment">Alte comentarii</label>
+                <div class="input-group md-3">
+                  <textarea ngModel name="comment" id="comment" type="text" class="form-control"></textarea>
+                </div>
+              </div>
+
+            </div>
+
+            <button type="reset" class="btn btn-secondary" id="back">Reset</button>
+            <button type="submit" class="btn btn-primary" id="submit">Trimitere</button>
+
+          </div>
     </form>
-    </div>
-</div> -->
-
-<input type="text" (keyup.enter)="add(house)" #house>
-
-<ul *ngFor="let house of houses$ | async">
-    <li>
-        {{house.$value || house.name}}
-    </li>
-</ul>
-
-<h2>here should over dummy data</h2>
+  </div>
+</div>
 
 
-      <div class="form-value">
-        Form value:
-        <pre>
-          {{houseform.value | json}}
-        </pre>
-        <p>
-          Status: {{houseform.status}}
-        </p>
-        <p>
-          Valid: {{houseform.valid}}
-        </p>
-        <p>Submit then open console to see full form.</p>
-      </div>
-      
-      
+
+
+<div class="form-value">
+  Form value:
+  <pre>
+     {{f.value | json}}
+  </pre>
+  <p>
+    Status: {{f.status}}
+  </p>
+  <p>
+    Valid: {{f.valid}}
+  </p>
+  <p>Submit then open console to see full form.</p>
+</div>
