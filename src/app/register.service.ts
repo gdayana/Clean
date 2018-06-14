@@ -1,11 +1,12 @@
-import { Http } from '@angular/http';
+import { AngularFireDatabase } from 'angularfire2/database';
+import * as firebase from 'firebase';
+import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map'
 
 @Injectable()
 
 export class RegisterService{
-    constructor(private http: Http){
+    constructor(private db: AngularFireDatabase){
     }
 
     // fetchData(){
@@ -15,4 +16,7 @@ export class RegisterService{
     //     }
    
     
+    create(f){
+        return this.db.list('/users/basic').push(f);
+    }
 }

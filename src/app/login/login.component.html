@@ -1,37 +1,36 @@
-<form (ngSubmit)="submitForm()" [formGroup]="loginForm" novalidate>
-    <div class="row" >
+<!-- <form (ngSubmit)="submitForm()" [formGroup]="loginForm" novalidate> -->
+<form #f="ngForm" (ngSubmit)="save(f.value)">
+  <div class="row">
     <div class="form-group col-sm-12" align="center">
       <label class="col-sm-3">
         <p>Username:</p>
-        <input type="text" formControlName="username" class="form-control" placeholder="Enter your Username">
+        <input type="text" ngModel name="username" formControlName="username" class="form-control" placeholder="Enter your Username">
       </label>
-  
+
       <br>
       <label class="col-sm-3">
         <p>Password:</p>
-        <input type="password" formControlName="password" class="form-control" placeholder="Enter your password">
+        <input type="password" ngModel name="password" formControlName="password" class="form-control" placeholder="Enter your password">
       </label>
       <br>
       <div class="form-submit">
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
     </div>
   </div>
-  </form>
-  <glogin></glogin>
-  
-  <div class="form-value">
-    Form value:
-    <pre>
-      {{loginForm.value | json}}
+</form>
+<glogin></glogin>
+
+<div class="form-value">
+  Form value:
+  <pre>
+      {{f.value | json}}
     </pre>
-    <p>
-      Status: {{loginForm.status}}
-    </p>
-    <p>
-      Valid: {{loginForm.valid}}
-    </p>
-    <p>Submit then open console to see full form.</p>
-  </div>
-  
-  
+  <p>
+    Status: {{f.status}}
+  </p>
+  <p>
+    Valid: {{f.valid}}
+  </p>
+  <p>Submit then open console to see full form.</p>
+</div>

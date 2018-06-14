@@ -12,6 +12,7 @@ import { RepoListComponent } from './github/repo-list/repo-list.component';
 import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterCompanyComponent } from './register_company/registerc.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 export const rootRouterConfig: Routes = [
@@ -21,6 +22,7 @@ export const rootRouterConfig: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registerc', component: RegisterCompanyComponent},
-  { path: 'houseform', component: HouseFormComponent}
+  { path: 'admin/houseform/new', component: HouseFormComponent, canActivate: [AuthGuardService]},
+  { path: 'admin/houseform', component: AdminComponent, canActivate: [AuthGuardService]},
 ];
 

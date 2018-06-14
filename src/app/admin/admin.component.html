@@ -1,0 +1,25 @@
+<p>
+    <a routerLink="/user/houseform/new" class="btn btn-primary"> Comanda noua </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Podea</th>
+            <th>Tavan</th>
+            <th>Ferestre</th>
+            <th>Uși</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of form$">
+            <td>{{f.floor}}</td>
+            <td>{{f.ceiling}}</td>
+            <td>{{f.windows}}</td>
+            <td>{{f.doors}}</td>
+            <!-- <td>
+                <a [routerLink]="['/user/houseform/', f.$key.]">Edit</a>
+            </td> -->
+        </tr>
+    </tbody>
+</table>
